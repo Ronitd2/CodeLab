@@ -1,0 +1,33 @@
+{
+  "cpuTime": "0.00",
+  "memory": "3328",
+  "output": "Sum of x+y = 35",
+  "language": {
+    "id": "cpp17",
+    "version": 1,
+    "version_name": "g++ 17 GCC 11.1.0"
+  }
+}
+const url = 'https://online-code-compiler.p.rapidapi.com/v1/';
+const options = {
+	method: 'POST',
+	headers: {
+		'content-type': 'application/json',
+		'X-RapidAPI-Key': '886916d19cmsh4b5bf791d26aa46p19828bjsn7fad2c092bc2',
+		'X-RapidAPI-Host': 'online-code-compiler.p.rapidapi.com'
+	},
+	body: {
+		language: 'cpp17',
+		version: 'latest',
+		code: '#include <iostream> \n using namespace std; \n int main() { \n int x=10; int y=25; int z=x+y; cout<<"Sum of x+y = " << z; }',
+		input: null
+	}
+};
+
+try {
+	const response = await fetch(url, options);
+	const result = await response.text();
+	console.log(result);
+} catch (error) {
+	console.error(error);
+}
