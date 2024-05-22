@@ -57,7 +57,7 @@ const AuthState=(props)=>{
         console.log(response.user);
         //const str=extractname(response.user.email);
         setUserdetails(response.user);
-        const response2 = await fetch("https://code-lab-server-three.vercel.app/login/",{
+        const response2 = await fetch("https://codelabserver.onrender.com/login/",{
             method:'POST',
             body:JSON.stringify({uid:response.user.uid}),
             headers:{
@@ -83,7 +83,7 @@ const AuthState=(props)=>{
             const response=await signInWithPopup(auth, provider);
             console.log(response);
             setUserdetails(response.user);
-            const response2 = await fetch("https://code-lab-server-three.vercel.app/signup/",{
+            const response2 = await fetch("https://codelabserver.onrender.com/signup/",{
             method:'POST',
             body:JSON.stringify({uid:response.user.uid,
                 name:response.user.displayName,
@@ -117,7 +117,7 @@ const AuthState=(props)=>{
         setUserdetails(response.user);
         
         
-        const response2 = await fetch("https://code-lab-server-three.vercel.app/signup/",{
+        const response2 = await fetch("https://codelabserver.onrender.com/signup/",{
             method:'POST',
             body:JSON.stringify({uid:response.user.uid,
                 name:namedata,
