@@ -5,7 +5,7 @@ import SocketContext from "./SocketContext";
 import io from "socket.io-client";
 import { useNavigate } from "react-router-dom";
 import { query } from "firebase/database";
-const socket = io.connect("http://localhost:8080",{query:{uid:"name"}});
+const socket = io.connect("https://code-lab-server-three.vercel.app",{query:{uid:"name"}});
 
 const SocketState=(props)=>{
     //const [clientsocket,setClientSocket]=useState("");
@@ -101,7 +101,7 @@ const SocketState=(props)=>{
     const getairesponse=async(data)=>{
         console.log(data);
         setLoader(true);
-        const response=await fetch(`http://localhost:8080/aimodel/`,{
+        const response=await fetch(`https://code-lab-server-three.vercel.app/aimodel/`,{
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json'
