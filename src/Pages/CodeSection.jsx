@@ -2,7 +2,7 @@ import React from "react";
 import send from "../assets/send-message.png";
 import play from "../assets/play.png";
 import { useContext,useState,useEffect } from "react";
-import { ToastContainer} from 'react-toastify';
+import { ToastContainer, toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SocketContext from '../Context/SocketContext';
 import Messagebox from "../Utils/Messagebox";
@@ -44,6 +44,15 @@ export default function CodeSection(){
               setAccessreq(true);
               setAccessender(data.accesssender);
         });
+        socket.on("getpermission",(data)=>{
+              if(data.access===true)
+                {
+                  toast.success("access is granted");
+                }
+                else{
+                  toast.error("access is not granted");
+                }
+        })
       }, [socket]);
 
     return(
