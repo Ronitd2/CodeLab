@@ -25,8 +25,8 @@ const SelfEditor=()=>{
       };
     return(
     <MonacoEditor
-      width="1060"
-      height="500"
+      width="100%"
+      height="70%"
       language="javascript"
       theme="vs-dark"
       value={code}
