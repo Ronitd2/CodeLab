@@ -34,6 +34,10 @@ const SocketState=(props)=>{
                 toast.error("This room is already exist");
             }
             else{
+                setCollabCode("");
+                setSelfCode("");
+                localStorage.setItem('collabcode',"");
+                localStorage.setItem('selfcode',"");
                 setIsAdmin(true);
                 navigate('/codesection');
                 toast.success("Room is created successfully");
@@ -57,9 +61,20 @@ const SocketState=(props)=>{
                 toast.error("This room is not exist");
             }
             else{
+                if(room !=="")
+                {
+                   if(room!==roomid)
+                    {
+                        setCollabCode("");
+                        setSelfCode("");
+                        localStorage.setItem('room',roomid);
+                        localStorage.setItem('collabcode',"");
+                        localStorage.setItem('selfcode',"");
+                    }  
+                }
                 setIsAdmin(false);
                 toast.success("You have joined in room successfully");
-                navigate('/codesection');
+                navigate('/codesection');    
             }});//emit send and on recieve
           
           //console.log("you have entered the room");
