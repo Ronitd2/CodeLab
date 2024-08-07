@@ -57,6 +57,7 @@ const SocketState=(props)=>{
                 toast.error("This room is not exist");
             }
             else{
+                setIsAdmin(false);
                 toast.success("You have joined in room successfully");
                 navigate('/codesection');
             }});//emit send and on recieve
