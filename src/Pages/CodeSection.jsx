@@ -92,7 +92,7 @@ export default function CodeSection(){
             <SelfEditor />
             }
              
-            <div>
+            <div className="h-[30%]">
             {/* <div className="flex justify-between">
               <p className="text-white text-lg ml-3">output</p>
             </div> */}
