@@ -12,6 +12,7 @@ import SelfEditor from "../Components/SelfEditor";
 import AuthContext from "../Context/AuthContext";
 import { Slide } from "react-awesome-reveal";
 import BardAI from "../Components/BardAI";
+import Terminal from "../Components/Terminal";
 export default function CodeSection(){
     const [message,setMessage]=useState("");
     // const [messageReceived,setMessageReceived]=useState("");
@@ -92,13 +93,14 @@ export default function CodeSection(){
             }
              
             <div>
-            <div className="flex justify-between">
+            {/* <div className="flex justify-between">
               <p className="text-white text-lg ml-3">output</p>
-            </div>
+            </div> */}
             {/* <div className="overflow-auto scrollbar-thumb scrollbar-thumb-rounded p-4">
                 {runstate && <p>{code}</p>}
             </div> */}
-           {context.permission && <p className="text-white">true</p>}
+            <Terminal />
+           {/* {context.permission && <p className="text-white">true</p>} */}
             </div>
             
             </div>
