@@ -93,9 +93,9 @@ const AuthState=(props)=>{
                 'Content-Type':'application/json'
             }
         });
-        const data=await response2.json();
-        console.log(data);
-        localStorage.setItem('token',data.tokenname);
+        // const data=await response2.json();
+        // console.log(data);
+        localStorage.setItem('token',response.user.displayName);
 
             console.log("Login Successfull");
             navigate('/');
@@ -145,6 +145,17 @@ const AuthState=(props)=>{
             const response=await signInWithPopup(auth, provider);
             console.log(response);
             setUserdetails(response.user);
+            const response2 = await fetch("https://codelabserver.onrender.com/signup/",{
+                method:'POST',
+                body:JSON.stringify({uid:response.user.uid,
+                    name:response.user.displayName,
+                    email:response.user.email,
+                    pic:response.user.photoURL}),
+                headers:{
+                    'Content-Type':'application/json'
+                }
+            });
+            localStorage.setItem('token',response.user.displayName);
             console.log("Sign up Successfull");
             navigate('/');
         }
