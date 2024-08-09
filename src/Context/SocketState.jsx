@@ -92,6 +92,9 @@ const SocketState=(props)=>{
     const sendpermission=(accessmode,sendername)=>{
         socket.emit("give-permission",{accessmode:accessmode,sendername:sendername});
     }
+    const setpermapp=(perm)=>{
+        setPermission(perm);
+    }
     const collabteam=(data)=>{
         console.log(data);
         if(data.access==="yes")
@@ -109,7 +112,7 @@ const SocketState=(props)=>{
     //     setrealcode(newValue);
     // }
     const leaveacc=()=>{
-        //setPermission(false);
+        setPermission(false);
         const name=localStorage.getItem('token');
         socket.emit("leave-permission",{name:name});
         //console.log(permission);
@@ -210,7 +213,7 @@ const SocketState=(props)=>{
     return(
         <>
 
-            <SocketContext.Provider value={{socket,room,collabcode,selfcode,chattype,aioutput,codeoutput,permission,loader,isadmin,joinRoom,output,setrealcode,setoffcode,chanechatpage,getairesponse,createRoom,getaccess,sendpermission,leaveacc,collabteam,logremove}}>
+            <SocketContext.Provider value={{socket,room,collabcode,selfcode,chattype,aioutput,codeoutput,permission,loader,isadmin,joinRoom,output,setrealcode,setoffcode,chanechatpage,getairesponse,createRoom,getaccess,sendpermission,leaveacc,collabteam,logremove,setpermapp}}>
             {props.children}
             </SocketContext.Provider>
 

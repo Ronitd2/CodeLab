@@ -46,6 +46,7 @@ export default function CodeSection(){
               setAccessender(data.accesssender);
         });
         socket.on("getpermission",(data)=>{
+              context.setpermapp(data.access);
               if(data.access===true)
                 {
                   toast.success("access is granted");
