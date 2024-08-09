@@ -25,8 +25,9 @@ const SocketState=(props)=>{
         {
         localStorage.setItem('room',roomno);
         const name=localStorage.getItem('token');
+        const email=localStorage.getItem('email');
         setRoom(roomno);
-        socket.emit("create_room", {roomid:roomno,name:name},(response) => {
+        socket.emit("create_room", {roomid:roomno,name:name,email:email},(response) => {
             // Handle the response from the server
             console.log('Server response:', response);
             if(response.error)
@@ -52,8 +53,9 @@ const SocketState=(props)=>{
         //setClientSocket(socket);
         setRoom(roomid);
         const name=localStorage.getItem('token');
+        const email=localStorage.getItem('email');
         if (roomid !== "") {
-          socket.emit("join_room", {roomid:roomid,name:name},(response) => {
+          socket.emit("join_room", {roomid:roomid,name:name,email:email},(response) => {
             // Handle the response from the server
             console.log('Server response:', response);
             if(response.error)
