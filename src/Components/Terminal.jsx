@@ -30,6 +30,6 @@ export default function Terminal()
         })
     })
     return(
-        <div className="h-fit" ref={terminalRef} id="terminal"></div>
+        <div className="h-[100%]" ref={terminalRef} id="terminal"></div>
     )
 }
