@@ -68,7 +68,7 @@ export default function CodeSection(){
             <div className="flex items-center gap-7 mr-2">
             {isadmin===true && <p className="text-white text-md">Admin</p>}
             {isadmin===false && editorroom===true  && <p className="text-white text-md cursor-pointer hover:bg-[#8576FF] hover:rounded-xl p-1" onClick={()=>{context.getaccess()}}>Access permission</p>}
-            {isadmin===false && editorroom===true  && <p className="text-white text-md cursor-pointer hover:bg-[#8576FF] hover:rounded-xl p-1" onClick={()=>{context.leaveacc()}}>Leave Access</p>}
+            {(isadmin===false && editorroom===true && context.permission===true )  && <p className="text-white text-md cursor-pointer hover:bg-[#8576FF] hover:rounded-xl p-1" onClick={()=>{context.leaveacc()}}>Leave Access</p>}
             {editorroom===true ?<p className="text-white text-md cursor-pointer hover:bg-[#8576FF] hover:rounded-xl p-1" onClick={()=>{setEditorRoom(!editorroom)}}>Self Tab</p>
             : <p className="text-white text-md cursor-pointer hover:bg-[#8576FF] hover:rounded-xl p-1" onClick={()=>{setEditorRoom(!editorroom)}}>Collaboration Tab</p>}
             <p className="text-white text-md cursor-pointer hover:bg-[#8576FF] hover:rounded-xl p-1">Terminal</p>
