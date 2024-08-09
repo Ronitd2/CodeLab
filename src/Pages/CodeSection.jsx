@@ -71,7 +71,6 @@ export default function CodeSection(){
              
             <Userlist />
 
-
             {isadmin===true && <p className="text-white text-md">Admin</p>}
             {isadmin===false && editorroom===true  && <p className="text-white text-md cursor-pointer hover:bg-[#8576FF] hover:rounded-xl p-1" onClick={()=>{context.getaccess()}}>Access permission</p>}
             {(isadmin===false && editorroom===true && context.permission===true )  && <p className="text-white text-md cursor-pointer hover:bg-[#8576FF] hover:rounded-xl p-1" onClick={()=>{context.leaveacc()}}>Leave Access</p>}
