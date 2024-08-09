@@ -5,7 +5,8 @@ import SocketContext from "./SocketContext";
 import io from "socket.io-client";
 import { useNavigate } from "react-router-dom";
 import { query } from "firebase/database";
-const socket = io.connect("https://codelabserver.onrender.com",{query:{uid:localStorage.getItem('email')}});
+const emailid=localStorage.getItem('email')
+const socket = io.connect("https://codelabserver.onrender.com",{query:{uid:emailid}});
 
 const SocketState=(props)=>{
     //const [clientsocket,setClientSocket]=useState("");
