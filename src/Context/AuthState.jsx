@@ -69,6 +69,7 @@ const AuthState=(props)=>{
         toast.success("Login Successful");
         console.log(data);
         localStorage.setItem('token',data.tokenname);
+        localStorage.setItem('email',response.user.email);
         console.log("Login Successfull");
         navigate('/');
         }
@@ -96,7 +97,7 @@ const AuthState=(props)=>{
         // const data=await response2.json();
         // console.log(data);
         localStorage.setItem('token',response.user.displayName);
-
+        localStorage.setItem('email',response.user.email);
             console.log("Login Successfull");
             navigate('/');
         }
@@ -131,6 +132,7 @@ const AuthState=(props)=>{
         setAuthLoader(false);
         console.log(data);
         localStorage.setItem('token',data.tokenname);
+        localStorage.setItem('email',response.user.email);
         console.log("Sign up Successfull");
         navigate('/');
         }catch(err)
@@ -156,6 +158,7 @@ const AuthState=(props)=>{
                 }
             });
             localStorage.setItem('token',response.user.displayName);
+            localStorage.setItem('email',response.user.email);
             console.log("Sign up Successfull");
             navigate('/');
         }
