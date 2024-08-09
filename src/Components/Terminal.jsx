@@ -14,7 +14,7 @@ export default function Terminal()
         if(isRendered.current) return;
 
         isRendered.current=true;
-        
+
         const term= new XTerminal(
             {
                 rows:20,
@@ -22,10 +22,14 @@ export default function Terminal()
         );
         term.open(terminalRef.current)
         term.onData(data =>{
-            console.log(data)
+            console.log(data);
+            socket.emit('terminal:write',data);
+        })
+        socket.on('terminal:output',(data)=>{
+            term.write(data);
         })
     })
     return(
-        <div ref={terminalRef} id="terminal"></div>
+        <div className="h-fit" ref={terminalRef} id="terminal"></div>
     )
 }
