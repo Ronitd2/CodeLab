@@ -13,6 +13,7 @@ import AuthContext from "../Context/AuthContext";
 import { Slide } from "react-awesome-reveal";
 import BardAI from "../Components/BardAI";
 import Terminal from "../Components/Terminal";
+import Userlist from "../Components/Userslist";
 export default function CodeSection(){
     const [message,setMessage]=useState("");
     // const [messageReceived,setMessageReceived]=useState("");
@@ -67,6 +68,10 @@ export default function CodeSection(){
             
             {editorroom===true ? <p className="text-lg font-semibold text-[#8576FF]">Collab</p> : <p className="text-lg font-semibold text-[#8576FF]">SelfEditor</p>}
             <div className="flex items-center gap-7 mr-2">
+             
+            <Userlist />
+
+
             {isadmin===true && <p className="text-white text-md">Admin</p>}
             {isadmin===false && editorroom===true  && <p className="text-white text-md cursor-pointer hover:bg-[#8576FF] hover:rounded-xl p-1" onClick={()=>{context.getaccess()}}>Access permission</p>}
             {(isadmin===false && editorroom===true && context.permission===true )  && <p className="text-white text-md cursor-pointer hover:bg-[#8576FF] hover:rounded-xl p-1" onClick={()=>{context.leaveacc()}}>Leave Access</p>}
