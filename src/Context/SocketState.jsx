@@ -139,9 +139,16 @@ const SocketState=(props)=>{
         setLoader(false);
         setAIoutput(prevaioutput => [...prevaioutput, record]);
     }
-    const output=async()=>{
-            console.log(selfcode);
-            const code='print("Hello World")';
+    const output=async(coderoom)=>{
+        if(coderoom===true)
+        {
+            const code=localStorage.getItem('collabcode');
+        }
+        else{
+            const code=localStorage.getItem('selfcode');
+        }
+            console.log(code);
+            //const code='print("Hello World")';
             // const url = 'https://online-code-compiler.p.rapidapi.com/v1/';
             //     const options = {
             //         method: 'POST',

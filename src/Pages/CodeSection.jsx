@@ -77,7 +77,7 @@ export default function CodeSection(){
             {editorroom===true ?<p className="text-white text-md cursor-pointer hover:bg-[#8576FF] hover:rounded-xl p-1" onClick={()=>{setEditorRoom(!editorroom)}}>Self Tab</p>
             : <p className="text-white text-md cursor-pointer hover:bg-[#8576FF] hover:rounded-xl p-1" onClick={()=>{setEditorRoom(!editorroom)}}>Collaboration Tab</p>}
             <p className="text-white text-md cursor-pointer hover:bg-[#8576FF] hover:rounded-xl p-1">Terminal</p>
-            <img className="h-5 w-5 cursor-pointer" src={play} onClick={context.output} ></img>
+            <img className="h-5 w-5 cursor-pointer" src={play} onClick={()=>{context.output(editorroom)}}></img>
             </div>
             </div>
             {accessreq===true && 
