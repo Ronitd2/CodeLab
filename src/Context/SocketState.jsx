@@ -144,9 +144,11 @@ const SocketState=(props)=>{
         
         if(coderoom===true)
         {
+            console.log("collab");
             setCodes(localStorage.getItem('collabcode'));
         }
         else{
+            console.log("self");
             setCodes(localStorage.getItem('selfcode'));
         }
             console.log(codes);
