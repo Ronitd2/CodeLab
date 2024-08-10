@@ -9,8 +9,10 @@ export default function Userlist()
  const context=useContext(SocketContext);
  const socket=context.socket;
  const fetchuser=()=>{
+    console.log("user fetching");
     socket.emit("receivedusers",{roomid:room},(response)=>{
-        setUsers(response.user);
+        console.log(response);
+        setUsers(response.users);
     });
  }
 //  useEffect(()=>{
