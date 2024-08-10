@@ -10,6 +10,7 @@ export default function Userlist()
  const socket=context.socket;
  useEffect(()=>{
     socket.on("receivedusers", (data) => {
+         console.log("hjhjghj");
          setUsers([...users,data]);
       });
  },[socket])
