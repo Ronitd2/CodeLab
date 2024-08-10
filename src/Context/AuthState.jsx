@@ -40,7 +40,7 @@ const AuthState=(props)=>{
             localStorage.removeItem('collabcode');
             localStorage.removeItem('selfcode');
             localStorage.removeItem('room');
-            
+            localStorage.removeItem('email');
             
             
             navigate('/login');

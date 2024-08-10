@@ -36,6 +36,7 @@ const SocketState=(props)=>{
                 toast.error("This room is already exist");
             }
             else{
+                console.log(response.success);
                 setCollabCode("");
                 setSelfCode("");
                 localStorage.setItem('collabcode',"");
