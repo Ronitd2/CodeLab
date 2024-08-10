@@ -141,26 +141,33 @@ const SocketState=(props)=>{
     }
     const output=async()=>{
             console.log(selfcode);
-            const url = 'https://online-code-compiler.p.rapidapi.com/v1/';
-                const options = {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json',
-                        'X-RapidAPI-Key': '886916d19cmsh4b5bf791d26aa46p19828bjsn7fad2c092bc2',
-                        'X-RapidAPI-Host': 'online-code-compiler.p.rapidapi.com'
-                    },
-                    body: {
-                        language: 'cpp17',
-                        version: 'latest',
-                        code: '#include <iostream> \n using namespace std; \n int main() { \n int x=10; int y=25; int z=x+y; cout<<"Sum of x+y = " << z; }',
-                        input: null
-                    }
-                };
+            const code='print("Hello World")';
+            // const url = 'https://online-code-compiler.p.rapidapi.com/v1/';
+            //     const options = {
+            //         method: 'POST',
+            //         headers: {
+            //             'content-type': 'application/json',
+            //             'X-RapidAPI-Key': '886916d19cmsh4b5bf791d26aa46p19828bjsn7fad2c092bc2',
+            //             'X-RapidAPI-Host': 'online-code-compiler.p.rapidapi.com'
+            //         },
+            //         body: {
+            //             language: 'cpp17',
+            //             version: 'latest',
+            //             code: '#include <iostream> \n using namespace std; \n int main() { \n int x=10; int y=25; int z=x+y; cout<<"Sum of x+y = " << z; }',
+            //             input: null
+            //         }
+            //     };
 
                 try {
-                    const response = await fetch(url, options);
-                    const result = await response.text();
-                    console.log(result);
+                    const response = await fetch("https://codelabserver.onrender.com/compile/",{
+                        method:'POST',
+                        body:JSON.stringify({sourcecode:code}),
+                        headers:{
+                            'Content-Type':'application/json'
+                        }
+                    });
+                    const data=await response.json();
+                    console.log(data);
                 } catch (error) {
                     console.error(error);
                 }
