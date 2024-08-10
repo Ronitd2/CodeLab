@@ -19,6 +19,7 @@ const SocketState=(props)=>{
     const [permission,setPermission]=useState(false);
     const [loader,setLoader]=useState(false);
     const [isadmin,setIsAdmin]=useState(false);
+    const [codes,setCodes]=useState('');
     const navigate = useNavigate()
     const createRoom=(roomno)=>{
         if(roomno!== "")
@@ -140,14 +141,15 @@ const SocketState=(props)=>{
         setAIoutput(prevaioutput => [...prevaioutput, record]);
     }
     const output=async(coderoom)=>{
+        
         if(coderoom===true)
         {
-            const code=localStorage.getItem('collabcode');
+            setCodes(localStorage.getItem('collabcode'));
         }
         else{
-            const code=localStorage.getItem('selfcode');
+            setCodes(localStorage.getItem('selfcode'));
         }
-            console.log(code);
+            console.log(codes);
             //const code='print("Hello World")';
             // const url = 'https://online-code-compiler.p.rapidapi.com/v1/';
             //     const options = {
@@ -168,7 +170,7 @@ const SocketState=(props)=>{
                 try {
                     const response = await fetch("https://codelabserver.onrender.com/compile/",{
                         method:'POST',
-                        body:JSON.stringify({sourcecode:code}),
+                        body:JSON.stringify({sourcecode:codes}),
                         headers:{
                             'Content-Type':'application/json'
                         }
