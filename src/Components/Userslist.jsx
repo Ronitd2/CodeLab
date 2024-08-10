@@ -3,21 +3,29 @@ import { useState , useEffect ,useContext} from "react";
 import SocketContext from '../Context/SocketContext';
 export default function Userlist()
 {
-
+ const room=localStorage.getItem('room');
  const [play,setPlay]=useState(false);
  const [users,setUsers]=useState([]);
  const context=useContext(SocketContext);
  const socket=context.socket;
- useEffect(()=>{
-    socket.on("receivedusers", (data) => {
-         console.log("hjhjghj");
-         setUsers([...users,data]);
-      });
- },[socket])
+ const fetchuser=()=>{
+    socket.emit("receivedusers",{roomid:room},(response)=>{
+        setUsers(response.user);
+    });
+ }
+//  useEffect(()=>{
+//     socket.emit("receivedusers",{roomid:room},(response)=>{
+//         setUsers(response.user);
+//     });
+    // socket.on("receivedusers", (data) => {
+    //      console.log("hjhjghj");
+    //      setUsers([...users,data]);
+    //   });
+//  },[socket])
 return(    
     <div>
 
-        <button  onClick={()=>{setPlay(!play)}} className="text-white text-md cursor-pointer bg-[#8576FF] hover:rounded-xl p-1">
+        <button  onClick={()=>{ fetchuser() ; setPlay(!play)}} className="text-white text-md cursor-pointer bg-[#8576FF] hover:rounded-xl p-1">
             All Users 
         </button>
 
