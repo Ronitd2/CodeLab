@@ -28,20 +28,22 @@ export default function Userlist()
 return(    
     <div>
 
-        <button  onClick={()=>{ fetchuser() ; setPlay(!play)}} className="text-white text-md cursor-pointer bg-[#8576FF] hover:rounded-xl p-1">
+        <button  onClick={()=>{ fetchuser() ; setPlay(true)}} className="text-white text-md cursor-pointer bg-[#8576FF] hover:rounded-xl p-1">
             All Users 
         </button>
 
         {play===true && 
 
-        <div className="z-50 absolute w-24 h-24 bg-slate-700 text-white font-semibold p-1">
+        <div className="z-50 absolute w-auto h-auto bg-slate-700 text-white font-semibold p-1">
+            
+            <p onClick={()=>{setPlay(false)}}>close</p>
             {
                 users && 
                 users.map((item) => (
 
-                    <div key={item._id} className="flex justify-between gap-1 p-1">
+                    <div key={item._id} className="flex justify-between gap-2 p-2 w-auto rounded-xl">
                        <p>{item.name}</p>
-                       <p>{item.access}</p>
+                       {item.access===true ? <p>true</p> : <p>false</p>}
                        {isadmin===true && <p>remove access</p>}
                     </div>
                     
