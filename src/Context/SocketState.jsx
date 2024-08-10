@@ -95,7 +95,7 @@ const SocketState=(props)=>{
     }
 
     const sendpermission=(accessmode,sendername)=>{
-        socket.emit("give-permission",{accessmode:accessmode,sendername:sendername});
+        socket.emit("give-permission",{accessmode:accessmode,sendername:sendername,roomid:room});
     }
     const setpermapp=(perm)=>{
         setPermission(perm);
