@@ -8,6 +8,7 @@ export default function Userlist()
  const [users,setUsers]=useState([]);
  const context=useContext(SocketContext);
  const socket=context.socket;
+ const isadmin=context.isadmin;
  const fetchuser=()=>{
     console.log("user fetching");
     socket.emit("receivedusers",{roomid:room},(response)=>{
