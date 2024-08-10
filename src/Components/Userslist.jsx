@@ -34,14 +34,14 @@ return(
 
         {play===true && 
 
-        <div className="z-50 absolute w-auto h-auto bg-slate-700 text-white font-semibold p-1">
+        <div className="z-50 absolute w-auto h-auto bg-slate-700 text-white font-semibold p-1 rounded-xl">
             
             <p onClick={()=>{setPlay(false)}}>close</p>
             {
                 users && 
                 users.map((item) => (
 
-                    <div key={item._id} className="flex justify-between gap-2 p-2 w-auto rounded-xl">
+                    <div key={item._id} className="flex justify-between gap-4 p-2 w-auto ">
                        <p>{item.name}</p>
                        {item.access===true ? <p>true</p> : <p>false</p>}
                        {isadmin===true && <p>remove access</p>}
