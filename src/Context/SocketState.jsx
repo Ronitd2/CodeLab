@@ -145,11 +145,13 @@ const SocketState=(props)=>{
         if(coderoom===true)
         {
             console.log("collab");
-            setCodes(localStorage.getItem('collabcode'));
+            const code=localStorage.getItem('collabcode');
+            setCodes(code);
         }
         else{
             console.log("self");
-            setCodes(localStorage.getItem('selfcode'));
+            const code=localStorage.getItem('selfcode');
+            setCodes(code);
         }
             console.log(codes);
             //const code='print("Hello World")';
