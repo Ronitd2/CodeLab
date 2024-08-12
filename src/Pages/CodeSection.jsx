@@ -62,6 +62,7 @@ export default function CodeSection(){
               if(data.access===false)
               {
                 toast.error("access has been removed by admin");
+                context.removebyadmin();
               }
               else{
                 console.log("Fail");

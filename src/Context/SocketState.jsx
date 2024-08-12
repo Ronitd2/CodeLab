@@ -98,6 +98,10 @@ const SocketState=(props)=>{
             socket.emit("removeperm", {roomid:user.roomid,socketid:user.socketid});  
         }
     }
+    const removebyadmin=()=>{
+        setPermission(false);
+    }
+
     const getaccess=()=>{
         const name=localStorage.getItem('token');
         socket.emit("access-permission",{name:name,roomid:room});
@@ -246,7 +250,7 @@ const SocketState=(props)=>{
     return(
         <>
 
-            <SocketContext.Provider value={{socket,room,collabcode,selfcode,chattype,aioutput,codeoutput,permission,loader,isadmin,joinRoom,output,setrealcode,setoffcode,chanechatpage,getairesponse,createRoom,getaccess,sendpermission,leaveacc,collabteam,logremove,setpermapp,removepermiss}}>
+            <SocketContext.Provider value={{socket,room,collabcode,selfcode,chattype,aioutput,codeoutput,permission,loader,isadmin,joinRoom,output,setrealcode,setoffcode,chanechatpage,getairesponse,createRoom,getaccess,sendpermission,leaveacc,collabteam,logremove,setpermapp,removepermiss,removebyadmin}}>
             {props.children}
             </SocketContext.Provider>
 
