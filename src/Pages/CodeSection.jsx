@@ -116,9 +116,9 @@ export default function CodeSection(){
             <div className="flex justify-between">
               <p className="text-white text-lg ml-3">output</p>
             </div>
-            {/* <div className="overflow-auto scrollbar-thumb scrollbar-thumb-rounded p-4">
-                {runstate && <p>{code}</p>}
-            </div> */}
+            <div className="overflow-auto scrollbar-thumb scrollbar-thumb-rounded p-4 text-white text-md">
+                {context.codeoutput && <p>{context.codeoutput}</p>}
+            </div>
             {/* <Terminal /> */}
            {/* {context.permission && <p className="text-white">true</p>} */}
             </div>

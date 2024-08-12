@@ -21,6 +21,7 @@ const SocketState=(props)=>{
     const [isadmin,setIsAdmin]=useState(false);
     const [codes,setCodes]=useState('');
     const [program,setProgram]=useState('C++');
+
     const navigate = useNavigate()
     const createRoom=(roomno)=>{
         if(roomno!== "")
@@ -193,6 +194,15 @@ const SocketState=(props)=>{
                         }
                     });
                     const data=await response.json();
+                    if(data.output.exitCode==1)
+                    {
+                        const errormessage=data.output.errorType+" "+data.output.stderr;
+                        setCodeOutput(errormessage);
+                    }
+                    else{
+                        setCodeOutput(data.output.stdout);
+                    }
+                    setCodeOutput(data);
                     console.log(data);
                 } catch (error) {
                     console.error(error);
