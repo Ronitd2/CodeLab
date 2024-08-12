@@ -155,19 +155,19 @@ const SocketState=(props)=>{
         setAIoutput(prevaioutput => [...prevaioutput, record]);
     }
     const output=async(coderoom)=>{
-        
+        let code='';
         if(coderoom===true)
         {
             console.log("collab");
-            const code=localStorage.getItem('collabcode');
-            setCodes(code);
+            code=localStorage.getItem('collabcode');
+            //setCodes(code);
         }
         else{
             console.log("self");
-            const code=localStorage.getItem('selfcode');
-            setCodes(code);
+            code=localStorage.getItem('selfcode');
+            //setCodes(code);
         }
-            console.log(codes);
+            console.log(code);
             //const code='print("Hello World")';
             // const url = 'https://online-code-compiler.p.rapidapi.com/v1/';
             //     const options = {
@@ -188,7 +188,7 @@ const SocketState=(props)=>{
                 try {
                     const response = await fetch("https://codelabserver.onrender.com/compile/",{
                         method:'POST',
-                        body:JSON.stringify({sourcecode:codes,program:program}),
+                        body:JSON.stringify({sourcecode:code,program:program}),
                         headers:{
                             'Content-Type':'application/json'
                         }
