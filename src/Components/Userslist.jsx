@@ -1,8 +1,8 @@
 import React from "react"
 import { useState , useEffect ,useContext} from "react";
 import SocketContext from '../Context/SocketContext';
-import {green} from '../assets/green.png';
-import {red} from '../assets/red.png';
+import green from '../assets/green.png';
+import red from '../assets/red.png';
 export default function Userlist()
 {
  const room=localStorage.getItem('room');
