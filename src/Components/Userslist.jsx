@@ -16,15 +16,7 @@ export default function Userlist()
         setUsers(response.users);
     });
  }
-//  useEffect(()=>{
-//     socket.emit("receivedusers",{roomid:room},(response)=>{
-//         setUsers(response.user);
-//     });
-    // socket.on("receivedusers", (data) => {
-    //      console.log("hjhjghj");
-    //      setUsers([...users,data]);
-    //   });
-//  },[socket])
+
 return(    
     <div>
 

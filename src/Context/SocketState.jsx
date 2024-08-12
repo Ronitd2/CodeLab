@@ -20,6 +20,7 @@ const SocketState=(props)=>{
     const [loader,setLoader]=useState(false);
     const [isadmin,setIsAdmin]=useState(false);
     const [codes,setCodes]=useState('');
+    const [program,setProgram]=useState('C++');
     const navigate = useNavigate()
     const createRoom=(roomno)=>{
         if(roomno!== "")
@@ -186,7 +187,7 @@ const SocketState=(props)=>{
                 try {
                     const response = await fetch("https://codelabserver.onrender.com/compile/",{
                         method:'POST',
-                        body:JSON.stringify({sourcecode:codes}),
+                        body:JSON.stringify({sourcecode:codes,program:program}),
                         headers:{
                             'Content-Type':'application/json'
                         }
@@ -223,6 +224,9 @@ const SocketState=(props)=>{
             //     console.error(error);
             // }
       }
+    const setprogramlang=(data)=>{
+        setProgram(data);
+    }
     const logremove=()=>{
         console.log("logout is going on");
         socket.emit("logout-user");
@@ -250,7 +254,7 @@ const SocketState=(props)=>{
     return(
         <>
 
-            <SocketContext.Provider value={{socket,room,collabcode,selfcode,chattype,aioutput,codeoutput,permission,loader,isadmin,joinRoom,output,setrealcode,setoffcode,chanechatpage,getairesponse,createRoom,getaccess,sendpermission,leaveacc,collabteam,logremove,setpermapp,removepermiss,removebyadmin}}>
+            <SocketContext.Provider value={{socket,room,collabcode,selfcode,chattype,aioutput,codeoutput,permission,loader,isadmin,joinRoom,output,setrealcode,setoffcode,chanechatpage,getairesponse,createRoom,getaccess,sendpermission,leaveacc,collabteam,logremove,setpermapp,removepermiss,removebyadmin,setprogramlang}}>
             {props.children}
             </SocketContext.Provider>
 
