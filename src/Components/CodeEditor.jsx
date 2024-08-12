@@ -11,7 +11,9 @@ const CodeEditor = () => {
   
   const editorDidMount = (editor, monaco) => {
     //console.log('editorDidMount', editor);
-    if(!code && setCode(finalcode));
+    if(!code){
+      setCode(finalcode);
+    }
     editor.focus();
   };
 
