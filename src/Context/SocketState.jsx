@@ -94,7 +94,8 @@ const SocketState=(props)=>{
     const removepermiss=(user)=>{
         if (user) {
             console.log("removing permission");
-            socket.emit("removeperm", {roomid:user.roomid,socketid:user.socket.id});  
+            console.log(user);
+            socket.emit("removeperm", {roomid:user.roomid,socketid:user.socketid});  
         }
     }
     const getaccess=()=>{
