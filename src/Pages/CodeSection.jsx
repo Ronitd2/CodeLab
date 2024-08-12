@@ -58,9 +58,13 @@ export default function CodeSection(){
         })
 
         socket.on("permissionleavebyadmin",(data)=>{
+              console.log("permissionleavebyadmin");
               if(data.access===false)
               {
                 toast.error("access has been removed by admin");
+              }
+              else{
+                console.log("Fail");
               }
         })
       }, [socket]);
