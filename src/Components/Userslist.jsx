@@ -20,7 +20,7 @@ export default function Userlist()
 return(    
     <div>
 
-        <button  onClick={()=>{ fetchuser() ; setPlay(true)}} className="text-white text-md cursor-pointer bg-[#8576FF] hover:rounded-xl p-1">
+        <button  onClick={()=>{ fetchuser() ; setPlay(true)}} className="text-white text-md cursor-pointer bg-transparent border-[#8576FF] border-2 rounded-xl p-1">
             All Users 
         </button>
 

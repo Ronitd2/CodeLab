@@ -17,7 +17,7 @@ export default function Language()
 return(    
     <div>
 
-        <button  onClick={()=>{setPlay(true)}} className="text-white text-md cursor-pointer bg-transparent border-[#8576FF] border-2 hover:rounded-xl p-1 flex justify-center">
+        <button  onClick={()=>{setPlay(true)}} className="text-white text-md cursor-pointer bg-transparent border-[#8576FF] border-2 rounded-xl p-2 flex justify-center gap-2">
             <p>select language - </p>
             {lang && <p>{lang}</p>}
         </button>
@@ -27,11 +27,11 @@ return(
         <div className="z-50 absolute w-auto h-auto bg-slate-700 text-white font-semibold p-2 rounded-xl">
             
             <ul>
-                <li onClick={()=>{setprogram("C")}}>C</li>
-                <li onClick={()=>{setprogram("C++")}}>C++</li>
-                <li onClick={()=>{setprogram("Java")}}>Java</li>
-                <li onClick={()=>{setprogram("Python")}}>Python</li>
-                <li onClick={()=>{setprogram("Javascript")}}>Javascript</li>
+                <li  className="cursor-pointer" onClick={()=>{setprogram("C")}}>C</li>
+                <li  className="cursor-pointer" onClick={()=>{setprogram("C++")}}>C++</li>
+                <li  className="cursor-pointer" onClick={()=>{setprogram("Java")}}>Java</li>
+                <li  className="cursor-pointer" onClick={()=>{setprogram("Python")}}>Python</li>
+                <li  className="cursor-pointer" onClick={()=>{setprogram("Javascript")}}>Javascript</li>
             </ul>
             
         </div>
