@@ -17,8 +17,8 @@ export default function Language()
 return(    
     <div>
 
-        <button  onClick={()=>{setPlay(true)}} className="text-white text-md cursor-pointer bg-[#8576FF] hover:rounded-xl p-1">
-            select language
+        <button  onClick={()=>{setPlay(true)}} className="text-white text-md cursor-pointer border-[#8576FF] border-2 hover:rounded-xl p-1 flex justify-center">
+            <p>select language - </p>
             {lang && <p>{lang}</p>}
         </button>
 
