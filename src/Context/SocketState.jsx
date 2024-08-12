@@ -202,7 +202,7 @@ const SocketState=(props)=>{
                     else{
                         setCodeOutput(data.output.stdout);
                     }
-                    setCodeOutput(data);
+                    //setCodeOutput(data);
                     console.log(data);
                 } catch (error) {
                     console.error(error);
