@@ -1,6 +1,8 @@
 import React from "react"
 import { useState , useEffect ,useContext} from "react";
 import SocketContext from '../Context/SocketContext';
+import {green} from '../assets/green.png';
+import {red} from '../assets/red.png';
 export default function Userlist()
 {
  const room=localStorage.getItem('room');
@@ -35,7 +37,7 @@ return(
 
                     <div key={item._id} className="flex justify-between gap-4 p-2 w-auto ">
                        <p>{item.name}</p>
-                       {item.access===true ? <p>true</p> : <p>false</p>}
+                       {item.access===true ? <img src={green} className="h-4 w-4"></img> : <img src={red} className="h-4 w-4"></img>}
                        {isadmin===true && <p className="cursor-pointer hover:text-blue-100 " onClick={()=>{context.removepermiss(item)}}>remove access</p>}
                     </div>
                     
