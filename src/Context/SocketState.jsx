@@ -90,6 +90,13 @@ const SocketState=(props)=>{
             console.log("Cannot join into the room");
         }  
     };
+
+    const removepermiss=(user)=>{
+        if (user) {
+            console.log("removing permission");
+            socket.emit("removeperm", {roomid:user.roomid,socketid:user.socket.id});  
+        }
+    }
     const getaccess=()=>{
         const name=localStorage.getItem('token');
         socket.emit("access-permission",{name:name,roomid:room});
@@ -238,7 +245,7 @@ const SocketState=(props)=>{
     return(
         <>
 
-            <SocketContext.Provider value={{socket,room,collabcode,selfcode,chattype,aioutput,codeoutput,permission,loader,isadmin,joinRoom,output,setrealcode,setoffcode,chanechatpage,getairesponse,createRoom,getaccess,sendpermission,leaveacc,collabteam,logremove,setpermapp}}>
+            <SocketContext.Provider value={{socket,room,collabcode,selfcode,chattype,aioutput,codeoutput,permission,loader,isadmin,joinRoom,output,setrealcode,setoffcode,chanechatpage,getairesponse,createRoom,getaccess,sendpermission,leaveacc,collabteam,logremove,setpermapp,removepermiss}}>
             {props.children}
             </SocketContext.Provider>
 

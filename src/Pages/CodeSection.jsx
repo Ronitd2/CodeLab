@@ -56,6 +56,13 @@ export default function CodeSection(){
                   toast.error("access is not granted");
                 }
         })
+
+        socket.on("permissionleavebyadmin",(data)=>{
+              if(data.access===false)
+              {
+                toast.error("access has been removed by admin");
+              }
+        })
       }, [socket]);
 
     return(

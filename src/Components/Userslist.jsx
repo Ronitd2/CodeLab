@@ -36,7 +36,7 @@ return(
 
         <div className="z-50 absolute w-auto h-auto bg-slate-700 text-white font-semibold p-1 rounded-xl">
             
-            <p onClick={()=>{setPlay(false)}}>close</p>
+            <p className="cursor-pointer" onClick={()=>{setPlay(false)}}>close</p>
             {
                 users && 
                 users.map((item) => (
@@ -44,7 +44,7 @@ return(
                     <div key={item._id} className="flex justify-between gap-4 p-2 w-auto ">
                        <p>{item.name}</p>
                        {item.access===true ? <p>true</p> : <p>false</p>}
-                       {isadmin===true && <p>remove access</p>}
+                       {isadmin===true && <p className="cursor-pointer hover:text-blue-100 " onClick={()=>{context.removepermiss(item)}}>remove access</p>}
                     </div>
                     
                 ))
