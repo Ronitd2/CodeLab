@@ -115,15 +115,15 @@ export default function CodeSection(){
              
             <div className="h-[30%]">
             <div className="flex gap-3">
-              <p className="text-white text-lg ml-3 cursor-move" onClick={()=>{setCoderunstate(true)}}>output</p>
-              <p className="text-white text-lg ml-3 cursor-move" onClick={()=>{setCoderunstate(false)}}>input</p>
+              <p className="text-white text-lg ml-3" onClick={()=>{setCoderunstate(true)}}>output</p>
+              <p className="text-white text-lg ml-3" onClick={()=>{setCoderunstate(false)}}>input</p>
             </div>
             {coderunstate &&
             <div className="overflow-auto scrollbar-thumb scrollbar-thumb-rounded p-4 text-white text-md">
                 {context.codeoutput && <p>{context.codeoutput}</p>}
             </div>
             
-           
+            
             }
             {/* <Terminal /> */}
            {/* {context.permission && <p className="text-white">true</p>} */}

@@ -21,7 +21,7 @@ const SocketState=(props)=>{
     const [isadmin,setIsAdmin]=useState(false);
     const [codes,setCodes]=useState('');
     const [program,setProgram]=useState('C++');
-    const [input,setInput]=useState('');
+
     const navigate = useNavigate()
     const createRoom=(roomno)=>{
         if(roomno!== "")
@@ -168,12 +168,27 @@ const SocketState=(props)=>{
             //setCodes(code);
         }
             console.log(code);
-            
+            //const code='print("Hello World")';
+            // const url = 'https://online-code-compiler.p.rapidapi.com/v1/';
+            //     const options = {
+            //         method: 'POST',
+            //         headers: {
+            //             'content-type': 'application/json',
+            //             'X-RapidAPI-Key': '886916d19cmsh4b5bf791d26aa46p19828bjsn7fad2c092bc2',
+            //             'X-RapidAPI-Host': 'online-code-compiler.p.rapidapi.com'
+            //         },
+            //         body: {
+            //             language: 'cpp17',
+            //             version: 'latest',
+            //             code: '#include <iostream> \n using namespace std; \n int main() { \n int x=10; int y=25; int z=x+y; cout<<"Sum of x+y = " << z; }',
+            //             input: null
+            //         }
+            //     };
 
                 try {
                     const response = await fetch("https://codelabserver.onrender.com/compile/",{
                         method:'POST',
-                        body:JSON.stringify({sourcecode:code,program:program,input:input}),
+                        body:JSON.stringify({sourcecode:code,program:program}),
                         headers:{
                             'Content-Type':'application/json'
                         }
@@ -193,10 +208,32 @@ const SocketState=(props)=>{
                     console.error(error);
                 }
 
+
+            // const url = 'https://online-code-compiler.p.rapidapi.com/v1/';
+            // const options = {
+            // method: 'POST',
+            // headers: {
+            //     'content-type': 'application/json',
+            //     'X-RapidAPI-Key': '886916d19cmsh4b5bf791d26aa46p19828bjsn7fad2c092bc2',
+            //     'X-RapidAPI-Host': 'online-code-compiler.p.rapidapi.com'
+            // },
+            // body: {
+            //     language: 'cpp',
+            //     version: 'GCC 9.1.0',
+            //     code: selfcode,
+            //     input: null
+            // }
+            // };
+
+            // try {
+            //     const response = await fetch(url, options);
+            //     const result = await response.text();
+            //     console.log(result);
+            //     setCodeOutput(result);
+            // } catch (error) {
+            //     console.error(error);
+            // }
       }
-    const inputfunc=(input)=>{
-          setInput(input);
-    }
     const setprogramlang=(data)=>{
         setProgram(data);
     }
@@ -227,7 +264,7 @@ const SocketState=(props)=>{
     return(
         <>
 
-            <SocketContext.Provider value={{socket,room,collabcode,selfcode,chattype,aioutput,codeoutput,permission,loader,isadmin,joinRoom,output,setrealcode,setoffcode,chanechatpage,getairesponse,createRoom,getaccess,sendpermission,leaveacc,collabteam,logremove,setpermapp,removepermiss,removebyadmin,setprogramlang,inputfunc}}>
+            <SocketContext.Provider value={{socket,room,collabcode,selfcode,chattype,aioutput,codeoutput,permission,loader,isadmin,joinRoom,output,setrealcode,setoffcode,chanechatpage,getairesponse,createRoom,getaccess,sendpermission,leaveacc,collabteam,logremove,setpermapp,removepermiss,removebyadmin,setprogramlang}}>
             {props.children}
             </SocketContext.Provider>
 
