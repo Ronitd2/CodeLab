@@ -2,7 +2,7 @@ import React from "react";
 import { useState , useEffect ,useContext} from "react";
 import SocketContext from '../Context/SocketContext';
 
-const context=useContext(SocketContext);
+//const context=useContext(SocketContext);
 // const socket=context.socket;
 
 export default function TerminalInput(){
