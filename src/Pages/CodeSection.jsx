@@ -15,13 +15,14 @@ import BardAI from "../Components/BardAI";
 import Terminal from "../Components/Terminal";
 import Userlist from "../Components/Userslist";
 import Language from "../Components/Language";
+import TerminalInput from "../Components/TerminalInput";
 export default function CodeSection(){
     const [message,setMessage]=useState("");
     // const [messageReceived,setMessageReceived]=useState("");
     const [messagesReceived, setMessagesReceived] = useState([]);
     const [accessreq,setAccessreq]=useState(false);
     const [accessender,setAccessender]=useState("");
-    
+    const [coderunstate,setCoderunstate]=useState(true);
     const context2=useContext(AuthContext);
     const context=useContext(SocketContext);
     const chattype=context.chattype;
@@ -113,12 +114,17 @@ export default function CodeSection(){
             }
              
             <div className="h-[30%]">
-            <div className="flex justify-between">
-              <p className="text-white text-lg ml-3">output</p>
+            <div className="flex gap-3">
+              <p className="text-white text-lg ml-3 cursor-move" onClick={()=>{setCoderunstate(true)}}>output</p>
+              <p className="text-white text-lg ml-3 cursor-move" onClick={()=>{setCoderunstate(false)}}>input</p>
             </div>
+            {coderunstate ?
             <div className="overflow-auto scrollbar-thumb scrollbar-thumb-rounded p-4 text-white text-md">
                 {context.codeoutput && <p>{context.codeoutput}</p>}
             </div>
+            :
+            <TerminalInput />
+            }
             {/* <Terminal /> */}
            {/* {context.permission && <p className="text-white">true</p>} */}
             </div>
