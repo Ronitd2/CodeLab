@@ -118,12 +118,12 @@ export default function CodeSection(){
               <p className="text-white text-lg ml-3 cursor-move" onClick={()=>{setCoderunstate(true)}}>output</p>
               <p className="text-white text-lg ml-3 cursor-move" onClick={()=>{setCoderunstate(false)}}>input</p>
             </div>
-            {coderunstate ?
+            {coderunstate &&
             <div className="overflow-auto scrollbar-thumb scrollbar-thumb-rounded p-4 text-white text-md">
                 {context.codeoutput && <p>{context.codeoutput}</p>}
             </div>
-            :
-            <TerminalInput />
+            
+           
             }
             {/* <Terminal /> */}
            {/* {context.permission && <p className="text-white">true</p>} */}
