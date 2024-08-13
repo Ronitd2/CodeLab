@@ -234,9 +234,9 @@ const SocketState=(props)=>{
             //     console.error(error);
             // }
       }
-    // const inputfunc=(data)=>{
-    //     setInput(data);
-    // }
+    const inputfunc=(data)=>{
+        setInput(data);
+    }
     const setprogramlang=(data)=>{
         setProgram(data);
     }
@@ -267,7 +267,7 @@ const SocketState=(props)=>{
     return(
         <>
 
-            <SocketContext.Provider value={{socket,room,collabcode,selfcode,chattype,aioutput,codeoutput,permission,loader,isadmin,joinRoom,output,setrealcode,setoffcode,chanechatpage,getairesponse,createRoom,getaccess,sendpermission,leaveacc,collabteam,logremove,setpermapp,removepermiss,removebyadmin,setprogramlang}}>
+            <SocketContext.Provider value={{socket,room,collabcode,selfcode,chattype,aioutput,codeoutput,permission,loader,isadmin,joinRoom,output,setrealcode,setoffcode,chanechatpage,getairesponse,createRoom,getaccess,sendpermission,leaveacc,collabteam,logremove,setpermapp,removepermiss,removebyadmin,setprogramlang,inputfunc}}>
             {props.children}
             </SocketContext.Provider>
 
